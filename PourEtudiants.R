@@ -37,9 +37,7 @@ wd <- "~/Documents/Projets R/Belfort-master"
 setwd(wd)
 source("sources/create_graph.R")
 
-
 setwd("reprojetrseauxdepersonnages")
-
 
 ### Identification de l'emplacement des données des réseaux
 
@@ -195,7 +193,7 @@ draw <- function(g) {
 
 ### Dessiner le réseau sans attributs
 
-mon_oeuvre <- "Blade"
+mon_oeuvre <- "Fils"
 
 nom_fichier <- which(str_detect(titles, mon_oeuvre))
 plot_3 <- draw(g_3_connected[[nom_fichier]])

@@ -74,7 +74,7 @@ source("sources/fonctions_en_vrac.R")
 
 ### Dessiner le réseau sans attributs
 
-mon_oeuvre <- "Metro" # indiquer le nom de votre fichier source
+mon_oeuvre <- "2015.Seul_sur_Mars" # indiquer le nom de votre fichier source
 nom_fichier <- which(str_detect(titles, mon_oeuvre))
 
 seuil <- 3 # choisir un seuil pour votre graph
@@ -96,7 +96,7 @@ ggsave (paste (wd,"/viz/",mon_oeuvre,".",seuil,".png", sep=""), plot_simple, wid
 
 # si vous avez fourni le fichier -attr
 
-seuil <- 20 # choisir un seuil pour votre graph
+seuil <- 3 # choisir un seuil pour votre graph
 
 plot_attr <- draw2(g_connected(seuil)[[nom_fichier]])
 

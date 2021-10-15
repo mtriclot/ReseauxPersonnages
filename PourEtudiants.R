@@ -40,7 +40,7 @@ setwd (wd)
 # ça peut prendre un peu de temps, mais ça n'a lieu qu'une fois
 
 packages <- c("igraph","RColorBrewer","networkD3","ggraph","readr",
-              "tidygraph","gridExtra","extrafont")
+              "tidygraph","gridExtra")
 if (length(setdiff(packages, rownames(installed.packages()))) > 0) {
   install.packages(setdiff(packages, rownames(installed.packages())))  
 }
@@ -50,6 +50,7 @@ library(ggraph)
 library(readr)
 library(tidygraph)
 library(gridExtra)
+library(RColorBrewer)
 
 set_graph_style(plot_margin = margin(1, 1, 1, 1))
 
@@ -64,10 +65,10 @@ source("scripts/fonctions_en_vrac.R")
 
 ### Dessiner le réseau sans attributs
 
-mon_oeuvre <- "1878.500millions_Begum" # indiquer le nom de votre fichier source
+mon_oeuvre <- "2015.Seul_sur_Mars" # indiquer le nom de votre fichier source
 nom_fichier <- which(grepl(mon_oeuvre,titles))
 
-seuil <- 12 # choisir un seuil pour votre graph
+seuil <- 20 # choisir un seuil pour votre graph (3 est la valeur par défaut)
 
 plot_simple <- draw(g_connected(seuil)[[nom_fichier]])
 
@@ -86,7 +87,7 @@ ggsave (paste (wd,"/visualisations/",mon_oeuvre,".",seuil,".png", sep=""), plot_
 
 # si vous avez fourni le fichier -attr
 
-seuil <- 12 # choisir un seuil pour votre graph
+seuil <- 20 # choisir un seuil pour votre graph
 
 plot_attr <- draw2(g_connected(seuil)[[nom_fichier]])
 

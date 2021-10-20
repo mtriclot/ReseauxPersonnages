@@ -87,7 +87,7 @@ draw <- function(g) {
       alpha = .8,
       segment.colour = "pink"
     ) +
-    scale_size_area(max_size = 8, "Betweenness") +
+    scale_size_continuous(range = c(3,10),"Betweenness")+
     labs(caption = paste (mon_oeuvre, ", seuil : ", seuil, sep=""))
 }
 
@@ -111,7 +111,7 @@ draw2 <- function(g) {
     ) +
     scale_colour_brewer(palette = "Set1", "Type") +
     # scale_fill_grey(start = 1, end = 0.1, "Attribut secondaire") +
-    scale_size_area(max_size = 8, "Betweenness") +
+    scale_size_continuous(range = c(3,10),"Betweenness")+
     guides (fill = guide_legend(order = 1, override.aes=list(shape=21)), # spécifier shape 
             shape = guide_legend(order = 2),
             size = guide_legend(order = 3),
@@ -125,7 +125,7 @@ draw2 <- function(g) {
 draw3 <- function(g) {
   ggraph(g, layout = "lgl") +
     geom_edge_link(aes(width = weight)) +
-    geom_node_point(aes(size = betweenness(g)+10, fill = id2, shape = id1)) +
+    geom_node_point(aes(size = betweenness(g), fill = id2, shape = id1)) +
     scale_edge_width_continuous(range = c(.05, 3), "Poids") +
     geom_node_label(
       aes(label = name),
@@ -139,10 +139,13 @@ draw3 <- function(g) {
     scale_shape_manual(values = c(21, 22, 23, 24, 25, 8), "Type") +
     scale_fill_brewer(palette = "Set1", "Type") +
     # scale_fill_grey(start = 1, end = 0.1, "Attribut secondaire") +
-    scale_size_area(max_size = 8, "Degré") +
+    # scale_size_area(max_size = 10, "Degré") +
+    scale_size_continuous(range = c(3,10),"Betweenness")+
     # labs(title = mon_titre, caption = paste ("seuil :", seuil))+
     guides (fill = guide_legend(order = 1, override.aes=list(shape=21)), # spécifier shape 
             shape = guide_legend(order = 2),
             size = guide_legend(order = 3),
             range = guide_legend (order = 4))
 }
+
+? geom_node_label

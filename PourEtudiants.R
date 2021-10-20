@@ -61,7 +61,7 @@ source("scripts/fonctions_en_vrac.R")
 
 ### Dessiner le réseau sans attributs
 
-mon_oeuvre <- "1997.FF7" # indiquer le nom de votre fichier source
+mon_oeuvre <- "2015.Seul_sur_Mars" # indiquer le nom de votre fichier source
 nom_fichier <- which(grepl(mon_oeuvre,titles))
 
 seuil <- 10 # choisir un seuil pour votre graph (3 est la valeur par défaut)

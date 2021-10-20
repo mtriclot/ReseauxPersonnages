@@ -64,7 +64,7 @@ source("scripts/fonctions_en_vrac.R")
 mon_oeuvre <- "2015.Seul_sur_Mars" # indiquer le nom de votre fichier source
 nom_fichier <- which(grepl(mon_oeuvre,titles))
 
-seuil <- 10 # choisir un seuil pour votre graph (3 est la valeur par défaut)
+seuil <- 20 # choisir un seuil pour votre graph (3 est la valeur par défaut)
 
 plot_simple <- draw(g_connected(seuil)[[nom_fichier]])
 

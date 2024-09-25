@@ -1,7 +1,7 @@
 ### Script pour la génération des graphes 
 ### UV PH02 / UTBM
 ### Mathieu Triclot
-### 14/10/2021
+### 25/09/2024
 
 #####################
 ### MODE D'EMPLOI ###
@@ -64,7 +64,7 @@ source("scripts/fonctions_en_vrac.R")
 mon_oeuvre <- "2015.Seul_sur_Mars" # indiquer le nom de votre fichier source
 nom_fichier <- which(grepl(mon_oeuvre,titles))
 
-seuil <- 20 # choisir un seuil pour votre graph (3 est la valeur par défaut)
+seuil <- 3 # choisir un seuil pour votre graph (3 est la valeur par défaut)
 
 plot_simple <- draw(g_connected(seuil)[[nom_fichier]])
 
@@ -83,7 +83,7 @@ ggsave (paste (wd,"/visualisations/",mon_oeuvre,".",seuil,".png", sep=""), plot_
 
 # si vous avez fourni le fichier -attr
 
-seuil <- 20 # choisir un seuil pour votre graph
+seuil <- 3 # choisir un seuil pour votre graph
 
 plot_attr <- draw2(g_connected(seuil)[[nom_fichier]])
 
@@ -101,7 +101,7 @@ ggsave (paste (wd,"/visualisations/",mon_oeuvre,".attr.",seuil,".png", sep=""), 
 
 # si vous avez fourni le fichier -attr2
 
-seuil <- 20 # choisir un seuil pour votre graph
+seuil <- 3 # choisir un seuil pour votre graph
 
 plot_attr2 <- draw3(g_connected(seuil)[[nom_fichier]])
 

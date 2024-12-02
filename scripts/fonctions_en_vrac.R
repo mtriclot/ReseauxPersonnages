@@ -73,8 +73,10 @@ get_title <- function(g) {
 ### layout: stress, par défaut mais fr ou lgl marchent pas mal
 ### c'est le Fruchterman and Reingold qu'on utilisait avant
 
+choix.layout <- "fr"
+
 draw <- function(g) {
-  ggraph(g, layout ="kk") +
+  ggraph(g, layout = choix.layout) +
     geom_node_point(aes(size = betweenness(g))) +
     geom_edge_link(aes(width = weight)) +
     scale_edge_width_continuous(range = c(.05, 3), "Poids") +
@@ -96,7 +98,7 @@ draw <- function(g) {
 # fr ou stress (défaut)
 
 draw2 <- function(g) {
-  ggraph(g, layout = "kk") +
+  ggraph(g, layout = choix.layout) +
     geom_edge_link(aes(width = weight)) +
     geom_node_point(aes(size = betweenness(g), color = id1)) +
     scale_edge_width_continuous(range = c(.05, 3), "Poids") +
@@ -123,7 +125,7 @@ draw2 <- function(g) {
 # fr ou stress (défaut)
 
 draw3 <- function(g) {
-  ggraph(g, layout = "kk") +
+  ggraph(g, layout = choix.layout) +
     geom_edge_link(aes(width = weight)) +
     geom_node_point(aes(size = betweenness(g), fill = id2, shape = id1)) +
     scale_edge_width_continuous(range = c(.05, 3), "Poids") +
